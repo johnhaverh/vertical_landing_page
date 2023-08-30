@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration:buildBoxDecoration(),
         child: Stack(
           children: [
             _HomeBody(),
@@ -30,12 +31,25 @@ class HomePage extends StatelessWidget {
       )
     );
   }
+
+  BoxDecoration buildBoxDecoration() => BoxDecoration(
+    gradient: LinearGradient(
+      colors: [
+        Colors.pink,
+        Colors.greenAccent
+      ],
+      begin: Alignment.topCenter,
+      end:Alignment.bottomCenter,
+      stops: [0.5,0.5],
+    ),
+  );
 }
 
 class _HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageView(
+      scrollDirection: Axis.vertical,
       children: [
         HomeView(),
         AboutView(),
