@@ -4,7 +4,7 @@ import 'package:vertical_landing_page/providers/page_provider.dart';
 import 'package:vertical_landing_page/ui/pages/home_page.dart';
 
 final homeHandler = Handler(
-  handlerFunc: (context, params){
+  handlerFunc: (context, params) {
     final page = params['page']!.first;
     if (page != '/') {
       

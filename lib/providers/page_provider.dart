@@ -12,10 +12,13 @@ class PageProvider extends ChangeNotifier {
 
   createScrollController(String routeName){
     scrollController = PageController(initialPage: getPageIndex(routeName));
+    html.document.title = _pages[getPageIndex(routeName)];
+
     scrollController.addListener(() {
       final index = (scrollController.page ?? 0).round();
       if(index != _currentIndex) {
         html.window.history.pushState(null, '', '#/${_pages[index]}' );
+        html.document.title =_pages[index];
         _currentIndex = index;
       }
     });
